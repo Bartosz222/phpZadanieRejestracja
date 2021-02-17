@@ -1,0 +1,20 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+form{
+    display: flex;
+    flex-flow: column;
+    align-content: center;
+    align-items: center;
+    justify-content: space-around;
+    width: 100vw;
+    height: 100vh;
+}
+form input{
+    width: 30vw;
+    height: 5vh;
+}
+#submit{
+    background-color: aqua;
+}
