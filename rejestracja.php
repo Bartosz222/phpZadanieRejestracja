@@ -28,8 +28,8 @@
             $email = $field['email'];
             $password = $field['password'];
             $cpassword = $field['cpassword'];
-            $stmt = $this->conn->prepare("INSERT INTO $tabela (e-mail,login,haslo) values (:e-mail,:login,:haslo)");
-            $stmt->bindParam(':e-mail',$email,PDO::PARAM_STR);
+            $stmt = $this->conn->prepare("INSERT INTO $tabela (email,login,haslo) values (:email,:login,:haslo)");
+            $stmt->bindParam(':email',$email,PDO::PARAM_STR);
             $stmt->bindParam(':login',$login,PDO::PARAM_STR);
             $stmt->bindParam(':haslo',$password,PDO::PARAM_STR);
             if($password == $cpassword){
