@@ -34,9 +34,19 @@
             $stmt->bindParam(':haslo',$password,PDO::PARAM_STR);
             if($password == $cpassword){
                 $stmt->execute();
-                header("location: index.php");
+                header("location: main.php");
             }
             else $this->error = "Hasła muszą być takie same";
+        }
+        public function logowanie($tabela,$field){
+            $login=$field['login'];
+            $password=$field['password'];
+            $stmt=$this->conn->prepare("SELECT * FROM $tabela WHERE login=:login AND haslo=:haslo");
+            $stmt->bindParam(':login',$login,PDO::PARAM_STR);
+            $stmt->bindParam(':haslo',$password,PDO::PARAM_STR);
+            $stmt->execute();
+            if($stmt->rowCount()<=0) $this->error="Błedny login lub hasło";
+            else return true;
         }
     }
 ?>
